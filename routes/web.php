@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('/libri', function () {
-    $libri = ['titolo' => 'titolo 1', 'autore' => 'autore 1'];
-    // dd(compact('libri'));
-    return view('pages.libri', compact('libri'));
-});
+Route::get('/libri', [PageController::class, 'getLibri'])->name('libri');

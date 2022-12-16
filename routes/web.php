@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/libri', function () {
+    $libri = ['titolo' => 'titolo 1', 'autore' => 'autore 1'];
+    // dd(compact('libri'));
+    return view('pages.libri', compact('libri'));
 });

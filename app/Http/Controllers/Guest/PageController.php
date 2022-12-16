@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class PageController extends Controller
 {
@@ -12,8 +13,8 @@ class PageController extends Controller
     }
 
     public function getLibri(){
-        $libri = ['titolo' => 'titolo 1', 'autore' => 'autore 1'];
-        // dd(compact('libri'));
-        return view('pages.libri', compact('libri'));
+        $books = Book::all();
+        // dd(compact('books'));
+        return view('pages.libri', compact('books'));
     }
 }
